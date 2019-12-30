@@ -1,6 +1,6 @@
 const MongoClient = require("mongodb").MongoClient;
 const uri =
-  "mongodb+srv://stormadmin:123@cluster0-f3yzi.mongodb.net/storm?retryWrites=true&w=majority";
+  "INSERT YOUR MONGO URI";
 const mongo = require("mongodb"); // install mongo
 const ObjectId = mongo.ObjectID;
 
