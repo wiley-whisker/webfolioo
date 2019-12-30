@@ -1,0 +1,447 @@
+@import url("https://fonts.googleapis.com/css?family=Girassol&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Cinzel|Girassol&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Tangerine");
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //600px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    } //1800
+  }
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+  @include respond(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+  }
+
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12, 12/16
+  }
+}
+/* TOP MIDDLE  SECTION */
+.body {
+  position: relative;
+}
+.header__container {
+  display: flex;
+  padding: 30px;
+}
+//WEBFOLIO
+.header__logo {
+  align-self: center;
+  margin: 0 30px;
+  @include respond(big-desktop) {
+    font-size: 100px;
+  }
+
+  @include respond(tab-land) {
+    // width < 900?
+    font-size: 50px; //1 rem = 8px, 8/16 = 50%
+  }
+  font-size: 30px;
+}
+//DISCOVER LIVE CREATE DESIGN
+.header__nav ul li {
+  @include respond(big-desktop) {
+    font-size: 50px;
+  }
+
+  @include respond(tab-land) {
+    font-size: 20px;
+    margin: 0 20px;
+    padding: 0 0px 3px;
+  }
+  letter-spacing: 3px;
+  font-size: 19px;
+  font-weight: 300;
+  display: inline-block;
+  //30
+  margin: 0 30px;
+  border-bottom: 1px solid transparent;
+  // 20
+  padding: 0 20px 3px;
+}
+//LOGIN SIGNUP
+.header__log {
+  font-size: 10px;
+  @include respond(big-desktop) {
+    font-size: 30px;
+    left: 83%;
+  }
+
+  @include respond(tab-land) {
+    font-size: 15px;
+    left: 80%;
+  }
+  position: absolute;
+  left: 85%;
+  padding: 40px;
+  top: 0%;
+  display: block;
+  -webkit-transition: padding 0.3s;
+  transition: padding 0.3s;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: "GT Pressura", Arial, sans-serif;
+
+  font-weight: 700;
+}
+
+.ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+.header__nav ul {
+  margin: 0;
+  padding: 0;
+
+  left: -7%;
+  top: 10%;
+  list-style: none;
+  position: relative;
+}
+
+.header__nav {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+} /* end of top middle text*/
+
+//stacks
+//https://codepen.io/jenniferleigh/pen/rVpeGG
+.button-images {
+  position: relative;
+  max-width: 1050px;
+  margin: 0px auto;
+  @include respond(big-desktop) {
+    max-width: 2000px;
+  }
+
+  @include respond(tab-land) {
+    max-width: 900px;
+  }
+}
+
+.button-container {
+  position: relative;
+  text-align: center;
+  padding: 0;
+  border-radius: 5%;
+  overflow: hidden;
+}
+
+.button-container a:before {
+  content: "";
+  display: inline-block;
+  height: 38%;
+  /* 
+    vertical-align:middle; 
+    height: 100%;*/
+}
+
+.button-container a {
+  transition: all 1s ease-out;
+  background: rgba(248, 233, 233, 0.377);
+  //border-radius: 50%;
+  vertical-align: middle;
+  padding: 5%;
+  color: #ffffff;
+  position: absolute;
+  font-size: 1.125em;
+  font-weight: 700;
+  top: 0;
+  left: 0px;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.button-container a:hover {
+  background: none;
+  border: none;
+  opacity: 0;
+}
+.button-container img {
+  width: 100%;
+  height: 15vh;
+}
+
+/*Columns*/
+.one_half,
+.one_third,
+.two_third,
+.three_fourth,
+.one_fourth,
+.one_fifth,
+.two_fifth,
+.three_fifth,
+.four_fifth,
+.one_sixth,
+.five_sixth {
+  position: relative;
+  margin-right: 4%;
+  float: left;
+  min-height: 1px;
+  height: auto !important;
+}
+
+.one_fourth {
+  width: 22%;
+}
+
+.three_fourth {
+  width: 74%;
+}
+
+.one_fifth {
+  width: 16.8%;
+}
+
+.two_fifth {
+  width: 37.6%;
+}
+
+.three_fifth {
+  width: 58.4%;
+}
+
+.four_fifth {
+  width: 79.2%;
+}
+
+.one_sixth {
+  width: 13.3333%;
+}
+
+.three_sixth {
+  width: 47.9998%;
+}
+
+.five_sixth {
+  width: 82.6665%;
+}
+
+.last {
+  margin-right: 0 !important;
+  clear: right;
+}
+
+.clearboth {
+  clear: both;
+  display: block;
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+  width: 100%;
+}
+
+.spacer {
+  height: 15px;
+}
+
+.one_half .one_half {
+  margin-right: 8.3333%;
+  width: 45.8333%;
+}
+
+.one_half .one_third {
+  margin-right: 8.3333%;
+  width: 27.7778%;
+}
+
+.one_half .two_third {
+  margin-right: 8.3333%;
+  width: 63.8889%;
+}
+
+.two_third .one_third {
+  margin-right: 6.1224%;
+  width: 29.2517%;
+}
+
+.two_third .two_third {
+  margin-right: 6.1224%;
+  width: 64.6258%;
+}
+
+.two_third .one_fourth {
+  margin-right: 6.1224%;
+  width: 20.4082%;
+}
+
+.one_half,
+.two_fourth {
+  width: 48%;
+}
+
+.one_third,
+.two_sixth {
+  width: 30.6666%;
+}
+
+.two_third,
+.four_sixth {
+  width: 65.3332%;
+}
+// MASTER A STACK
+.stacktitle {
+  position: relative;
+  width: fit-content;
+  left: 35.5%;
+  top: 20%;
+  font-family: "Tangerine", serif;
+  font-size: 70px;
+  text-shadow: 4px 4px 4px #aaa;
+  @include respond(big-desktop) {
+    left: 43%;
+  }
+
+  @include respond(tab-land) {
+    left: 32%;
+  }
+  @include respond(tab-port) {
+    left: 30%;
+  }
+}
+.broadcast {
+  position: relative;
+  top: 20vh;
+  font-family: "Cinzel", serif;
+  font-size: 30px;
+  width: 100%;
+  height: 100vh;
+}
+.broadcast__title {
+  position: absolute;
+  text-align: center;
+  left: 40%;
+
+  font-weight: 700;
+  @include respond(big-desktop) {
+    left: 45%;
+  }
+
+  @include respond(tab-land) {
+    left: 35%;
+  }
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-container > div > img {
+  position: relative;
+  margin: 5px;
+
+  line-height: 70px;
+  font-size: 30px;
+  height: 400px;
+  width: 370px;
+  left: 50px;
+  @include respond(big-desktop) {
+    height: 600px;
+    width: 770px;
+  }
+
+  @include respond(tab-land) {
+    height: 400px;
+    width: 270px;
+    left: 90px;
+    padding-right: 10px;
+  }
+}
+
+.users {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+}
+
+.username {
+  position: relative;
+  font-size: 15px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  left: 15%;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+  top: 1%;
+  @include respond(tab-land) {
+    left: 35%;
+  }
+}
+
+.heart {
+  position: relative;
+  left: 33%;
+  top: -11%;
+
+  font-size: 25px;
+  @include respond(tab-land) {
+    left: 65%;
+  }
+}
+.likes {
+  position: relative;
+
+  left: 15%;
+
+  font-size: 15px;
+  @include respond(tab-land) {
+    left: 36%;
+  }
+}
+.project {
+  @include respond(tab-land) {
+    left: 36%;
+  }
+  position: relative;
+  left: 15%;
+  font-size: 25px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
